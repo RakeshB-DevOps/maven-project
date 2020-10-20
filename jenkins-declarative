@@ -16,6 +16,12 @@ pipeline{
                sh "mvn clean package"
                }
         }
+       stage("Maven Deploy")
+        {
+            steps{
+               sh "deploy contextPath: 'Devops', war: '**/*.war'"
+               }
+        }
     }
     
 }
