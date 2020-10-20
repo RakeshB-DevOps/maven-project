@@ -20,9 +20,12 @@ pipeline{
         }
        stage("Maven Deploy")
         {
+          sshaganet(['tomcat-new'])
+          {
             steps{
                sh "scp /target/webapp.war root@192.168.147.129/opt/tomcat/apache-tomcat-10.0.0-M7/webapps/"
                }
+          }
         }
     }
     
