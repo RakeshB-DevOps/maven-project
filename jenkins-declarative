@@ -19,7 +19,7 @@ pipeline{
        stage("Maven Deploy")
         {
             steps{
-               sh "deploy contextPath: 'Devops', war: '**/*.war'"
+               sh "scp /target/*.war /opt/tomcat/apache-tomcat-10.0.0-M7/webapps/"
                }
         }
     }
