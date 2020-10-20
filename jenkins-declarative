@@ -14,14 +14,10 @@ pipeline{
         {
             steps{
                sh "mvn clean package"
+               sh "mv *.war webapp.war"
                }
         }
-       stage("Maven Deploy")
-        {
-            steps{
-               sh "scp /target/*.war /opt/tomcat/apache-tomcat-10.0.0-M7/webapps/"
-               }
-        }
+      
     }
     
 }
