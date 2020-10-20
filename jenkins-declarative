@@ -14,7 +14,8 @@ pipeline{
         {
             steps{
                sh "mvn clean package"
-            
+               sh "ls "
+               sh "mv target/devops.war target/webapp.war"
                }
         }
       
