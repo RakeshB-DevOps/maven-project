@@ -20,13 +20,13 @@ pipeline{
         }
        stage("Maven Deploy")
         {
-          sshagent(['tomcat-new'])
-           {
+           sshagent(['tomcat-new'])
+            {
            
-                sh "scp /target/webapp.war root@192.168.147.129/opt/tomcat/apache-tomcat-10.0.0-M7/webapps/"
+                sh "scp -o StrictHostKeyChecking=no sample.war  root@192.168.147.128:/opt/tomcat/apache-tomcat-8.5.59/webapps"
          
-           }
-      }
+            }
+       }
     }
     
 }
