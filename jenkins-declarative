@@ -14,17 +14,14 @@ pipeline{
         {
             steps{
                sh "mvn clean package"
-               sh "ls "
                sh "mv target/devops.war target/webapp.war"
                }
         }
        stage("Maven Deploy")
         {
-           sshagent(['tomcat-new'])
-            {
-           
+           steps
+            {          
                 sh "scp -o StrictHostKeyChecking=no sample.war  root@192.168.147.128:/opt/tomcat/apache-tomcat-8.5.59/webapps"
-         
             }
        }
     }
